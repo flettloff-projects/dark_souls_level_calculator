@@ -2,16 +2,19 @@
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <ClassSelection/>
+    <LevelSection/>
   </div>
 </template>
 
 <script>
 import ClassSelection from './components/ClassSelection.vue'
+import LevelSection from './components/LevelSection.vue'
 
 export default {
   name: 'app',
   components: {
-    ClassSelection
+    ClassSelection,
+    LevelSection
   }
 }
 </script>
