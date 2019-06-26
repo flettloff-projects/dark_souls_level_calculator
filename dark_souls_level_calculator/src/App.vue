@@ -3,18 +3,22 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <ClassSelection/>
     <LevelSection/>
+    <AttributeSection/>
   </div>
 </template>
 
 <script>
+import AttributeSection from './components/AttributesSection.vue'
 import ClassSelection from './components/ClassSelection.vue'
 import LevelSection from './components/LevelSection.vue'
+
 
 export default {
   name: 'app',
   components: {
+    AttributeSection,
     ClassSelection,
-    LevelSection
+    LevelSection,
   }
 }
 </script>
