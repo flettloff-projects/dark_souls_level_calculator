@@ -1,32 +1,35 @@
 <template>
     <div class="levels">
         <form id="level-form" v-on:submit="submitForm">
-        <table>
+        <table class="table">
             <thead>
                 <tr>
-                    <th></th>
-                    <th>
-                     <label for="Level" type="Text">Level </label>
-                     </th>
-                     <th>
-    <input v-model="message" placeholder="0" maxlength="3" size="1">
-    </th>
-    <th></th>
+                <th></th>
+                <th>Starting</th>
+                <th>Current</th>
                 </tr>
                 <tr>
-                    <th></th>
-                <th>Starting</th>
-                <th></th>
-                <th>Current</th>
-                <th></th>
                 </tr>
-                <th></th>
+                <tr>
+                    <th>Level </th>
+                    <th>
+                       <input v-model="message" placeholder="0" maxlength="3" size="1" ref="levelinit"> 
+                    </th>
+                    <th>
+                       <input v-model="message" placeholder="0" maxlength="3" size="1" ref="levelcurr"> 
+                    </th>
+                    <th>
+                        <img class="resizeArrows" src="../assets/buttons/downarrow.png">
+                    </th>
+                    <th>
+                        <img class="resizeArrows" src="../assets/buttons/uparrow.png">
+                    </th> 
+                </tr>
                 <tr>
                     <th>Vitality </th>
                     <th>
-                      <label for="Level" type="Text" text-align="center" ref="vitalityinit">0</label>  
+                      <input v-model="message" :disabled="true" placeholder="0" maxlength="3" size="1"  type="Text" text-align="center" ref="vitalityinit">
                     </th>
-                    <th></th>
                     <th>
                        <input v-model="message" placeholder="0" maxlength="3" size="1" ref="vitalityInput"> 
                     </th>
@@ -40,9 +43,8 @@
                 <tr>
                     <th>Attunement </th>
                     <th>
-                      <label for="Level" type="Text" text-align="center" ref="attunementinit">0</label>
+                      <input v-model="message" :disabled="true" placeholder="0" maxlength="3" size="1"  ref="attunementinit">
                     </th>
-                    <th></th>
                     <th>
                        <input v-model="message" placeholder="0" maxlength="3" size="1" ref="attunementInput"> 
                     </th>
@@ -56,9 +58,8 @@
                 <tr>
                     <th>Endurance </th>
                     <th>
-                      <label for="Level" type="Text" text-align="center" ref="enduranceinit">0</label>  
+                      <input v-model="message"  :disabled="true" placeholder="0" maxlength="3" size="1" ref="enduranceinit">
                     </th>
-                    <th></th>
                     <th>
                        <input v-model="message" placeholder="0" maxlength="3" size="1" ref="enduranceInput"> 
                     </th>
@@ -72,9 +73,8 @@
                 <tr>
                     <th>Strength </th>
                     <th>
-                      <label for="Level" type="Text" text-align="center" ref="strengthinit">0</label>  
+                      <input v-model="message" :disabled="true" placeholder="0" maxlength="3" size="1"  ref="strengthinit"> 
                     </th>
-                    <th></th>
                     <th>
                        <input v-model="message" placeholder="0" maxlength="3" size="1" ref="strengthInput"> 
                     </th>
@@ -88,9 +88,8 @@
                 <tr>
                     <th>Dexterity </th>
                     <th>
-                      <label for="Level" type="Text" text-align="center" ref="dexterityinit">0</label>  
+                      <input v-model="message" :disabled="true" placeholder="0" maxlength="3" size="1"  ref="dexterityinit"> 
                     </th>
-                    <th></th>
                     <th>
                        <input v-model="message" placeholder="0" maxlength="3" size="1" ref="dexterityInput"> 
                     </th>
@@ -104,9 +103,8 @@
                     <tr>
                     <th>Resistance </th>
                     <th>
-                      <label for="Level" type="Text" text-align="center" ref="resistanceinit">0</label>  
+                      <input v-model="message" :disabled="true" placeholder="0" maxlength="3" size="1" ref="resistanceinit"> 
                     </th>
-                    <th></th>
                     <th>
                        <input v-model="message" placeholder="0" maxlength="3" size="1" ref="resistanceInput"> 
                     </th>
@@ -120,9 +118,8 @@
                 <tr>
                     <th>Intelligence </th>
                     <th>
-                      <label for="Level" type="Text" text-align="center" ref="intelligenceinit">0</label>  
+                      <input v-model="message" :disabled="true" placeholder="0" maxlength="3" size="1" ref="intelligenceinit">
                     </th>
-                    <th></th>
                     <th>
                        <input v-model="message" placeholder="0" maxlength="3" size="1" ref="intelligenceInput"> 
                     </th>
@@ -136,9 +133,8 @@
                 <tr>
                     <th>Faith </th>
                     <th>
-                      <label for="Level" type="Text" text-align="center" ref="faithinit">0</label>  
+                      <input v-model="message" :disabled="true" placeholder="0" maxlength="3" size="1"  ref="faithinit">
                     </th>
-                    <th></th>
                     <th>
                        <input v-model="message" placeholder="0" maxlength="3" size="1" ref="faithInput"> 
                     </th>
@@ -149,32 +145,29 @@
                         <img class="resizeArrows" src="../assets/buttons/uparrow.png">
                     </th> 
                 </tr>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th>
-                         <button v-on="resetForm">Reset</button>
-                    </th>
-                    <th></th>
-                </tr>
+                <tr></tr>
             </thead>
         </table>
-        <table>
+         <button v-on="resetForm" class="button">Reset</button>
+        <table  class="table">
         <thead>
+            <tr></tr>
+            <tr></tr>
         <tr>
             <th>HP</th>
+            <th></th>
             <th></th>
             <th><input v-model="message" placeholder="0" maxlength="3" size="1" ref="hpInput"></th>
         </tr>
         <tr>
             <th>Stamina</th>
             <th></th>
+            <th></th>
             <th><input v-model="message" placeholder="0" maxlength="3" size="1" ref="staminaInput"></th>
         </tr>
         <tr>
             <th>Equipment Burden</th>
+            <th></th>
             <th></th>
             <th><input v-model="message" placeholder="0" maxlength="3" size="1" ref="equipmentBurdenInput"></th>
         </tr>
@@ -198,22 +191,34 @@ export default {
 
 <style scopped>
    .resizeArrows {
-        width: 10px;
-        height: 12px;
-
+        width: 15px;
+        height: 17px;
    }
    .levels {
-       border-style: solid;
+        border-style: solid;
         border-width: 5px;
         overflow: auto;
-        padding: 30px;
+        padding: 50px;
+        margin: 1%;
         white-space: nowrap;
+        text-align: left;
+        position: relative;
+        text-size-adjust: 5px;
    }
-   /* label = initial value */
-   .label { 
-       text-align: center;
+    .input {
+       text-align: left;
        position: relative;
        padding: 50px;
        text-size-adjust: 5px;
+   }
+   .button {
+        width: 5%;
+        margin-left: 14%;
+        margin-bottom: 10px;
+
+   }
+   .table {
+        width: 30px;
+        border-spacing: 4px 1rem;
    }
 </style>
