@@ -130,7 +130,6 @@ export default {
         }
       },
       defaultClass: 'bandit',
-      currentClass: null,
       gainedStats: {
         level: 0,
         vitality: 0,
@@ -153,24 +152,39 @@ export default {
     startingStats: function() {
       let characterClass = this.getCurrentClass;
       return this.classMap[characterClass]
+    },
+    getCurrentClass: function() {
+        if (this.currentClass == null) {
+            return this.defaultClass
+        } else {
+          return this.currentClass
+        }
+    },
+    getCurrentStats: function() {
+      var currentStats = {}
+      for (var key in this.startingStats) {
+        currentStats[key] = this.startingStats[key] + this.gainedStats[key]
+      }
+      return currentStats
     }
   },
   methods: {
-      getCurrentClass: function() {
-        if (this.currentClass == null) {
-            return this.defaultClass;
-        } else {
-          return this.currentClass;
-        }
-      },
-      levelUp: function(stat) {
-        this.gainedStats.level++;
-        this.gainedStats[stat]++;
-      },
-      levelDown: function(stat) {
-        this.gainedStats.level--;
-        this.gainedStats[stat]--;
-      }
+    levelUp: function(stat) {
+      this.gainedStats.level++
+      this.gainedStats[stat]++
+    },
+    levelDown: function(stat) {
+      // Need to stop from going below this.startingStats[stat] and throw an alert
+      this.gainedStats.level--;
+      this.gainedStats[stat]--;
+    },
+    getStartingStat: function(stat) {
+      let characterClass = this.getCurrentClass
+      return this.classMap[characterClass][stat]
+    },
+    getCurrentStat: function(stat) {
+      return this.startingStats[stat] + this.gainedStats[stat]
+    }
   }
 }
 </script>

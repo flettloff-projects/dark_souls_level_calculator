@@ -1,6 +1,7 @@
 <template>
     <div class="levels">
-        <form id="level-form" v-on:submit="submitForm">
+        <!-- <form id="level-form" v-on:submit="submitForm"> -->
+        <form id="level-form">
         <table class="table">
             <thead>
                 <tr>
@@ -10,145 +11,19 @@
                 </tr>
                 <tr>
                 </tr>
-                <tr>
-                    <th>Level </th>
-                    <th>
-                       <input v-model="message" placeholder="0" maxlength="3" size="1" ref="levelinit"> 
-                    </th>
-                    <th>
-                       <input v-model="message" placeholder="0" maxlength="3" size="1" ref="levelcurr"> 
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/downarrow.png">
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/uparrow.png">
-                    </th> 
-                </tr>
-                <tr>
-                    <th>Vitality </th>
-                    <th>
-                      <input v-model="message" :disabled="true" placeholder="0" maxlength="3" size="1"  type="Text" text-align="center" ref="vitalityinit">
-                    </th>
-                    <th>
-                       <input v-model="message" placeholder="0" maxlength="3" size="1" ref="vitalityInput"> 
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/downarrow.png">
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/uparrow.png">
-                    </th> 
-                </tr>
-                <tr>
-                    <th>Attunement </th>
-                    <th>
-                      <input v-model="message" :disabled="true" placeholder="0" maxlength="3" size="1"  ref="attunementinit">
-                    </th>
-                    <th>
-                       <input v-model="message" placeholder="0" maxlength="3" size="1" ref="attunementInput"> 
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/downarrow.png">
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/uparrow.png">
-                    </th> 
-                </tr>
-                <tr>
-                    <th>Endurance </th>
-                    <th>
-                      <input v-model="message"  :disabled="true" placeholder="0" maxlength="3" size="1" ref="enduranceinit">
-                    </th>
-                    <th>
-                       <input v-model="message" placeholder="0" maxlength="3" size="1" ref="enduranceInput"> 
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/downarrow.png">
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/uparrow.png">
-                    </th> 
-                </tr>
-                <tr>
-                    <th>Strength </th>
-                    <th>
-                      <input v-model="message" :disabled="true" placeholder="0" maxlength="3" size="1"  ref="strengthinit"> 
-                    </th>
-                    <th>
-                       <input v-model="message" placeholder="0" maxlength="3" size="1" ref="strengthInput"> 
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/downarrow.png">
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/uparrow.png">
-                    </th> 
-                </tr>
-                <tr>
-                    <th>Dexterity </th>
-                    <th>
-                      <input v-model="message" :disabled="true" placeholder="0" maxlength="3" size="1"  ref="dexterityinit"> 
-                    </th>
-                    <th>
-                       <input v-model="message" placeholder="0" maxlength="3" size="1" ref="dexterityInput"> 
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/downarrow.png">
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/uparrow.png">
-                    </th> 
-                </tr>
-                    <tr>
-                    <th>Resistance </th>
-                    <th>
-                      <input v-model="message" :disabled="true" placeholder="0" maxlength="3" size="1" ref="resistanceinit"> 
-                    </th>
-                    <th>
-                       <input v-model="message" placeholder="0" maxlength="3" size="1" ref="resistanceInput"> 
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/downarrow.png">
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/uparrow.png">
-                    </th> 
-                </tr>
-                <tr>
-                    <th>Intelligence </th>
-                    <th>
-                      <input v-model="message" :disabled="true" placeholder="0" maxlength="3" size="1" ref="intelligenceinit">
-                    </th>
-                    <th>
-                       <input v-model="message" placeholder="0" maxlength="3" size="1" ref="intelligenceInput"> 
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/downarrow.png">
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/uparrow.png">
-                    </th> 
-                </tr>
-                <tr>
-                    <th>Faith </th>
-                    <th>
-                      <input v-model="message" :disabled="true" placeholder="0" maxlength="3" size="1"  ref="faithinit">
-                    </th>
-                    <th>
-                       <input v-model="message" placeholder="0" maxlength="3" size="1" ref="faithInput"> 
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/downarrow.png">
-                    </th>
-                    <th>
-                        <img class="resizeArrows" src="../assets/buttons/uparrow.png">
-                    </th> 
-                </tr>
+                <Stat statName="level"/>
+                <Stat statName="vitality"/>
+                <Stat statName="attunement"/>
+                <Stat statName="endurance"/>
+                <Stat statName="strength"/>
+                <Stat statName="dexterity"/>
+                <Stat statName="resistance"/>
+                <Stat statName="intelligence"/>
+                <Stat statName="faith"/>
                 <tr></tr>
             </thead>
         </table>
-         <button v-on="resetForm" class="button">Reset</button>
+         <!-- <button v-on="resetForm" class="button">Reset</button> -->
         <table  class="table">
         <thead>
             <tr></tr>
@@ -157,19 +32,19 @@
             <th>HP</th>
             <th></th>
             <th></th>
-            <th><input v-model="message" placeholder="0" maxlength="3" size="1" ref="hpInput"></th>
+            <th><input placeholder="0" maxlength="3" size="3" ref="hpInput"></th>
         </tr>
         <tr>
             <th>Stamina</th>
             <th></th>
             <th></th>
-            <th><input v-model="message" placeholder="0" maxlength="3" size="1" ref="staminaInput"></th>
+            <th><input placeholder="0" maxlength="3" size="3" ref="staminaInput"></th>
         </tr>
         <tr>
             <th>Equipment Burden</th>
             <th></th>
             <th></th>
-            <th><input v-model="message" placeholder="0" maxlength="3" size="1" ref="equipmentBurdenInput"></th>
+            <th><input placeholder="0" maxlength="3" size="3" ref="equipmentBurdenInput"></th>
         </tr>
         </thead>
         </table>
@@ -178,11 +53,28 @@
 </template>
 
 <script>
+import Stat from './Stat.vue'
+
 export default {
     name: 'LevelSection',
+    components: {
+        Stat,
+    },
     methods: {
         resetForm: function() {
             this.$data.text = " "
+        },
+        getStartingStat: function(stat) {
+            return this.$parent.startingStats[stat]
+        },
+        getGainedStat: function(stat) {
+            return this.$parent.getCurrentStat(stat)
+        },
+        levelUp: function(stat) {
+            this.$parent.levelUp(stat)
+        },
+        levelDown: function(stat) {
+            this.$parent.levelDown(stat)
         }
     }
 }
