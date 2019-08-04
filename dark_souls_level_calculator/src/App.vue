@@ -174,9 +174,14 @@ export default {
       this.gainedStats[stat]++
     },
     levelDown: function(stat) {
-      // Need to stop from going below this.startingStats[stat] and throw an alert
+      if(this.gainedStats.level === 0){
+        if(this.gainedStats[stat] != 0){
+          this.gainedStats[stat]--;   
+        }
+      }else {
       this.gainedStats.level--;
       this.gainedStats[stat]--;
+      }
     },
     getStartingStat: function(stat) {
       let characterClass = this.getCurrentClass
@@ -184,8 +189,17 @@ export default {
     },
     getCurrentStat: function(stat) {
       return this.startingStats[stat] + this.gainedStats[stat]
-    }
-  }
+    },
+    updateClass: function(newClass) {
+      // There is a bug here. 
+      // After a few clicks it stops working. Everytime it is random. Once 16 times, the other 4 times. 
+      this.defaultClass = newClass
+      this.startingStats()
+    },
+    resetFilter: function() {
+      this.classMap.reset()
+  },
+}
 }
 </script>
 
