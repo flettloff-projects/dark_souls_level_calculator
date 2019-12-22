@@ -48,6 +48,7 @@
         </tr>
         </thead>
         </table>
+         <button @click="resetFilter" class="resetButton">Clear</button>
         </form>
     </div>
 </template>
@@ -103,10 +104,15 @@ export default {
        padding: 50px;
        text-size-adjust: 5px;
    }
-   .button {
-        width: 5%;
-        margin-left: 14%;
+   .resetButton {
+        width: 15%;
+        height: 8%;
         margin-bottom: 10px;
+        position: center;
+        background-image: url("../assets/buttons/clearbtn.png");
+        font-size: 15px;
+        font-weight: 900;
+        color: #5C0F00;
 
    }
    .table {
